@@ -1,0 +1,8 @@
+bots\FlashSales.class
+Main.class
+BotSettings.class
+bots\GoogleSheets.class
+bots\Weather.class
+utils\GoogleSheets.class
+Bot.class
+bots\News.class
