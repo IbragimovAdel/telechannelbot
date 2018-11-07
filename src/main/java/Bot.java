@@ -49,7 +49,7 @@ public class Bot extends TelegramLongPollingBot {
             sendMessage.enableWebPagePreview();
             if (s.equals("") && url.equals("")) text = "На данный момент акций нет \uD83D\uDE22";
             else if (url.equals("")) text = s;
-            else if (s.equals("")) text = "\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\n[&#8205;](" + url+")";
+            else if (s.equals("")) text = "\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\n[](" + url+")";
             else text = s + "\n\n" + "<a href=\"" + url + "\"></a>";
         } else if(text.contains("/setfstext")){
             FlashSales.setFlashSalesText(text);
