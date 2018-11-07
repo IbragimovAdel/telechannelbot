@@ -39,14 +39,18 @@ public class Bot extends TelegramLongPollingBot {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else if (text.equals("/flashsale")) {
-            String s = FlashSales.getFlashSalesText();
-            String url = FlashSales.getFlashSalesUrl();
-            sendMessage.setParseMode("Markdown");
+        } else if (text.contains("/flashsale")) {
+            int d = -1;
+            String[] cmd = text.split(" ");
+            if(cmd.length == 2 && cmd[1].charAt(0)>=49 && cmd[1].charAt(0)<=55) d = Integer.parseInt(cmd[1]);
+            String s = FlashSales.getFlashSalesText(d);
+            String url = FlashSales.getFlashSalesUrl(d);
+            sendMessage.setParseMode("HTML");
+            sendMessage.enableWebPagePreview();
             if (s.equals("") && url.equals("")) text = "На данный момент акций нет \uD83D\uDE22";
             else if (url.equals("")) text = s;
-            else if (s.equals("")) text = "[ ](" + url+")";
-            else text = s + "\n\n" + "[](" + url + ")";
+            else if (s.equals("")) text = "<a href=\"" + url+"\"></a>";
+            else text = s + "\n\n" + "<a href=\"" + url + "\"></a>";
         } else if(text.contains("/setfstext")){
             FlashSales.setFlashSalesText(text);
             sendMessage.setChatId(chatId);

@@ -35,10 +35,11 @@ public class FlashSales {
 
     }
 
-    public static String getFlashSalesText(){
-
-        Calendar calendar = Calendar.getInstance();
-        int d = calendar.get(Calendar.DAY_OF_WEEK);
+    public static String getFlashSalesText(int d){
+        if(d == -1) {
+            Calendar calendar = Calendar.getInstance();
+            d = calendar.get(Calendar.DAY_OF_WEEK);
+        }
         NodeList nodeList = document.getElementsByTagName("day");
         Element element = (Element) nodeList.item(d-1);
         String result = element.getElementsByTagName("sale").item(0).getTextContent();
@@ -95,10 +96,12 @@ public class FlashSales {
         } else return;
     }
 
-    public static String getFlashSalesUrl(){
+    public static String getFlashSalesUrl(int d){
 
-        Calendar calendar = Calendar.getInstance();
-        int d = calendar.get(Calendar.DAY_OF_WEEK);
+        if(d == -1) {
+            Calendar calendar = Calendar.getInstance();
+            d = calendar.get(Calendar.DAY_OF_WEEK);
+        }
         NodeList nodeList = document.getElementsByTagName("day");
         Element element = (Element) nodeList.item(d-1);
         String result = element.getElementsByTagName("url").item(0).getTextContent();
