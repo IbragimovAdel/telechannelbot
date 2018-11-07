@@ -42,10 +42,11 @@ public class Bot extends TelegramLongPollingBot {
         } else if (text.equals("/flashsale")) {
             String s = FlashSales.getFlashSalesText();
             String url = FlashSales.getFlashSalesUrl();
+            sendMessage.setParseMode("Markdown");
             if (s.equals("") && url.equals("")) text = "На данный момент акций нет \uD83D\uDE22";
             else if (url.equals("")) text = s;
-            else if (s.equals("")) text = url;
-            else text = s + "\n\n" + url;
+            else if (s.equals("")) text = "[]" + url;
+            else text = s + "\n\n" + "[]" + url;
         }
         sendMessage.setText(text);
         sendMessage(sendMessage);
