@@ -78,10 +78,7 @@ public class Bot extends TelegramLongPollingBot {
             }
         } else if (text.equals("/test")){
             Timer timer = new Timer();
-            Date date = new Date();
-            date.setHours(22);
-            date.setMinutes(52);
-            date.setSeconds(30);
+            Date date = new Date(2018,11,7,22,56,30);
             timer.schedule(new WeatherTT(),date,17280000);
             timer.schedule(new NewsTT(),date,17280000);
         }
