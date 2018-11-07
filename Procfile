@@ -1,1 +1,1 @@
-worker: sh target/bin/telechannelbot
+worker: sh target/bin/workerBot

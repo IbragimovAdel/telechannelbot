@@ -42,7 +42,7 @@
                     <programs>
                         <program>
                             <mainClass>Main</mainClass>
-                            <name>telechannelbot</name>
+                            <name>workerBot</name>
                         </program>
                     </programs>
                 </configuration>
