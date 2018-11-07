@@ -45,12 +45,16 @@ public class Bot extends TelegramLongPollingBot {
             sendMessage.setParseMode("Markdown");
             if (s.equals("") && url.equals("")) text = "На данный момент акций нет \uD83D\uDE22";
             else if (url.equals("")) text = s;
-            else if (s.equals("")) text = "[](" + url+")";
+            else if (s.equals("")) text = "[ ](" + url+")";
             else text = s + "\n\n" + "[](" + url + ")";
         } else if(text.contains("/setfstext")){
             FlashSales.setFlashSalesText(text);
+            sendMessage.setChatId(chatId);
+            text = "Текст успешно изменен";
         } else if(text.contains("/setfsurl")) {
             FlashSales.setFlashSalesUrl(text);
+            sendMessage.setChatId(chatId);
+            text = "Ссылка успешно изменена";
         }
         else {
             sendMessage.setChatId(chatId);
