@@ -91,7 +91,7 @@ public class FlashSales {
             for(int i=0;i<cmd.length-2;i++){
                 text += (cmd[i+2] + " ");
             }
-            element.getElementsByTagName("sale").item(0).setTextContent(text);
+            element.getElementsByTagName("url").item(0).setTextContent(text);
         } else return;
     }
 
