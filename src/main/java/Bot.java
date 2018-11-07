@@ -50,13 +50,17 @@ public class Bot extends TelegramLongPollingBot {
         } else if(text.contains("/setfstext")){
             FlashSales.setFlashSalesText(text);
             sendMessage.setChatId(chatId);
-            text = "Текст успешно изменен";
-            if(text.split(" ").length == 0) text = "Недостаточно аргументов";
+            if(text.split(" ").length == 1) text = "Недостаточно аргументов";
+            else {
+                text = "Текст успешно изменен";
+            }
         } else if(text.contains("/setfsurl")) {
             FlashSales.setFlashSalesUrl(text);
             sendMessage.setChatId(chatId);
-            text = "Ссылка успешно изменена";
-            if(text.split(" ").length == 0) text = "Недостаточно аргументов";
+            if(text.split(" ").length == 1) text = "Недостаточно аргументов";
+            else {
+                text = "Ссылка успешно изменена";
+            }
         }
         else {
             sendMessage.setChatId(chatId);
