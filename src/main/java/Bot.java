@@ -45,11 +45,11 @@ public class Bot extends TelegramLongPollingBot {
             if(cmd.length == 2 && cmd[1].charAt(0)>=49 && cmd[1].charAt(0)<=55) d = Integer.parseInt(cmd[1]);
             String s = FlashSales.getFlashSalesText(d);
             String url = FlashSales.getFlashSalesUrl(d);
-            sendMessage.setParseMode("HTML");
+            sendMessage.setParseMode("Markdown");
             sendMessage.enableWebPagePreview();
             if (s.equals("") && url.equals("")) text = "На данный момент акций нет \uD83D\uDE22";
             else if (url.equals("")) text = s;
-            else if (s.equals("")) text = "\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\n<a href=\"" + url+"\">&#8205;</a>";
+            else if (s.equals("")) text = "\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\n[&#8205;](" + url+")";
             else text = s + "\n\n" + "<a href=\"" + url + "\"></a>";
         } else if(text.contains("/setfstext")){
             FlashSales.setFlashSalesText(text);
