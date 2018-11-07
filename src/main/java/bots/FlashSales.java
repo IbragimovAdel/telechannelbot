@@ -24,7 +24,7 @@ public class FlashSales {
         factory = DocumentBuilderFactory.newInstance();
         try {
             builder = factory.newDocumentBuilder();
-            document = builder.parse(new File("src/main/resources/FlashSales.xml"));
+            document = builder.parse(new File("src/main/resources/FlashSale.xml"));
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         } catch (SAXException e) {
