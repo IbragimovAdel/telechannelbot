@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<days>
+    <day id="1">
+        <sale>понедельник</sale>
+        <url></url>
+    </day>
+    <day id="2">
+        <sale>вторник</sale>
+        <url></url>
+    </day>
+    <day id="3">
+        <sale>среда</sale>
+        <url></url>
+    </day>
+    <day id="4">
+        <sale>четверг</sale>
+        <url></url>
+    </day>
+    <day id="5">
+        <sale>пятница</sale>
+        <url></url>
+    </day>
+    <day id="6">
+        <sale>суббота</sale>
+        <url></url>
+    </day>
+    <day id="7">
+        <sale>воскресенье</sale>
+        <url></url>
+    </day>
+</days>

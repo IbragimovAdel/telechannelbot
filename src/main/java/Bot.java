@@ -1,6 +1,8 @@
+import bots.FlashSales;
 import bots.News;
 import bots.Weather;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
+import org.telegram.telegrambots.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
@@ -23,20 +25,27 @@ public class Bot extends TelegramLongPollingBot {
     private void sendMessage(String text, Long chatId) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(BotSettings.CHANNEL_ID);
-        if(text.equals("/weather")) {
+        if (text.equals("/weather")) {
             try {
                 text = Weather.getWeather();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else if(text.equals("/news")){
+        } else if (text.equals("/news")) {
             try {
                 text = News.getNews();
                 sendMessage.disableWebPagePreview();
                 sendMessage.setParseMode("Markdown");
-            } catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
+        } else if (text.equals("/flashsale")) {
+            String s = FlashSales.getFlashSalesText();
+            String url = FlashSales.getFlashSalesUrl();
+            if (s.equals("") && url.equals("")) text = "На данный момент акций нет \uD83D\uDE22";
+            else if (url.equals("")) text = s;
+            else if (s.equals("")) text = url;
+            else text = s + "\n\n" + url;
         }
         sendMessage.setText(text);
         sendMessage(sendMessage);
