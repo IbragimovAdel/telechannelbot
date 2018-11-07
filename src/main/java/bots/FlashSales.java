@@ -46,6 +46,37 @@ public class FlashSales {
         return result;
     }
 
+    public static void setFlashSalesText(String s) {
+
+        String[] cmd = s.split(" ");
+
+        if(cmd.length == 1) return;
+        else if(cmd.length == 2 && cmd[1].charAt(0)>=49 && cmd[1].charAt(0)<=55) {
+            int d = Integer.parseInt(cmd[1]);
+
+            NodeList nodeList = document.getElementsByTagName("day");
+            Element element = (Element) nodeList.item(d-1);
+            element.getElementsByTagName("sale").item(0).setTextContent("");
+        } else if(cmd.length > 2) {
+            int d = Integer.parseInt(cmd[1]);
+
+            NodeList nodeList = document.getElementsByTagName("day");
+            Element element = (Element) nodeList.item(d-1);
+            String text = "";
+            for(int i=0;i<cmd.length-2;i++){
+                text += (cmd[i+2] + " ");
+            }
+            element.getElementsByTagName("sale").item(0).setTextContent(text);
+        } else return;
+
+    }
+
+    public static void setFlashSalesUrl(String s) {
+
+        String[] cmd = s.split(" ");
+
+    }
+
     public static String getFlashSalesUrl(){
 
         Calendar calendar = Calendar.getInstance();
