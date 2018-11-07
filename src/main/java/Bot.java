@@ -9,6 +9,8 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.Date;
+import java.util.Timer;
 
 public class Bot extends TelegramLongPollingBot {
 
@@ -22,7 +24,16 @@ public class Bot extends TelegramLongPollingBot {
         }
     }
 
-    private void sendMessage(String text, Long chatId) throws TelegramApiException {
+    public static void sendMsg(String text){
+        Bot bot = new Bot();
+        try {
+            bot.sendMessage(text,(long) 0);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void sendMessage(String text, Long chatId) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(BotSettings.CHANNEL_ID);
         if (text.equals("/weather")) {
@@ -65,6 +76,14 @@ public class Bot extends TelegramLongPollingBot {
             else {
                 text = "Ссылка успешно изменена";
             }
+        } else if (text.equals("/test")){
+            Timer timer = new Timer();
+            Date date = new Date();
+            date.setHours(22);
+            date.setMinutes(52);
+            date.setSeconds(30);
+            timer.schedule(new WeatherTT(),date,17280000);
+            timer.schedule(new NewsTT(),date,17280000);
         }
         else {
             sendMessage.setChatId(chatId);
