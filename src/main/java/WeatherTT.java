@@ -6,7 +6,7 @@ import java.util.TimerTask;
 public class WeatherTT extends TimerTask {
     public void run() {
         try {
-            Bot.sendMsg(Weather.getWeather());
+            Bot.sendMsg("/weather");
         } catch (IOException e) {
             e.printStackTrace();
         }
