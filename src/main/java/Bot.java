@@ -14,6 +14,8 @@ import java.util.Timer;
 
 public class Bot extends TelegramLongPollingBot {
 
+    Timer timer = new Timer();
+
     public void onUpdateReceived(Update update) {
         if(update.hasMessage()&&update.getMessage().hasText()){
             try {
@@ -76,11 +78,16 @@ public class Bot extends TelegramLongPollingBot {
             else {
                 text = "Ссылка успешно изменена";
             }
-        } else if (text.equals("/test")){
-            Timer timer = new Timer();
-            Date date = new Date(2018,11,7,22,59,00);
-            timer.schedule(new WeatherTT(),date,17280000);
-            timer.schedule(new NewsTT(),date,17280000);
+        } else if (text.contains("/test")){
+            String[] cmd = new String[];
+            cmd = text.split(" ");
+            Date date = new Date();
+            date.setHours(Integer.parseInt(cmd[1]));
+            date.setHours(Integer.parseInt(cmd[2]));
+            timer.schedule(new WeatherTT(),date,60000);
+            timer.schedule(new NewsTT(),date,60000);
+        } else if (text.equals("/stop")){
+            timer.cancel();
         }
         else {
             sendMessage.setChatId(chatId);
