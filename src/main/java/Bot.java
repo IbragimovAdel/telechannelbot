@@ -83,11 +83,15 @@ public class Bot extends TelegramLongPollingBot {
             cmd = text.split(" ");
             Date date = new Date();
             date.setHours(Integer.parseInt(cmd[1]));
-            date.setHours(Integer.parseInt(cmd[2]));
+            date.setMinutes(Integer.parseInt(cmd[2]));
             timer.schedule(new WeatherTT(),date,60000);
             timer.schedule(new NewsTT(),date,60000);
+            text = "Тестирование запущено";
+            sendMessage.setChatId(chatId);
         } else if (text.equals("/stop")){
             timer.cancel();
+            text = "Тестирование остановлено";
+            sendMessage.setChatId(chatId);
         }
         else {
             sendMessage.setChatId(chatId);
