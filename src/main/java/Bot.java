@@ -84,7 +84,7 @@ public class Bot extends TelegramLongPollingBot {
             Date date = new Date();
             date.setHours(Integer.parseInt(cmd[1]));
             date.setMinutes(Integer.parseInt(cmd[2]));
-            date = new Date(2018,11,8,14,50);
+            date = new Date(2018,11,8,14,52);
             timer.schedule(new WeatherTT(),date,60000);
             timer.schedule(new NewsTT(),date,60000);
             text = "Тестирование запущено";
