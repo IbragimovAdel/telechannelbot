@@ -79,7 +79,7 @@ public class Bot extends TelegramLongPollingBot {
                 text = "Ссылка успешно изменена";
             }
         } else if (text.contains("/test")){
-            String[] cmd = new String[];
+            String[] cmd;
             cmd = text.split(" ");
             Date date = new Date();
             date.setHours(Integer.parseInt(cmd[1]));
