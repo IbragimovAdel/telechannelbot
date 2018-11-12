@@ -1,14 +1,11 @@
-import bots.FlashSales;
-import bots.News;
-import bots.Weather;
+import bots.*;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
-import org.telegram.telegrambots.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
+import org.xml.sax.SAXException;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.Date;
 import java.util.Timer;
 
@@ -16,11 +13,13 @@ public class Bot extends TelegramLongPollingBot {
 
     Timer timer;
 
+    private boolean isStopped;
+
     public void onUpdateReceived(Update update) {
         if(update.hasMessage()&&update.getMessage().hasText()){
             try {
                 sendMessage(update.getMessage().getText(),update.getMessage().getChatId());
-            } catch (TelegramApiException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -30,12 +29,12 @@ public class Bot extends TelegramLongPollingBot {
         Bot bot = new Bot();
         try {
             bot.sendMessage(text,(long) 0);
-        } catch (TelegramApiException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void sendMessage(String text, Long chatId) throws TelegramApiException {
+    public void sendMessage(String text, Long chatId) throws TelegramApiException, InterruptedException, IOException, SAXException {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(BotSettings.CHANNEL_ID);
         if (text.equals("/weather")) {
@@ -78,21 +77,39 @@ public class Bot extends TelegramLongPollingBot {
             else {
                 text = "Ссылка успешно изменена";
             }
+        } else if(text.equals("/autonews")){
+            text = AutoNews.getNews();
+            sendMessage.disableWebPagePreview();
+            sendMessage.setParseMode("Markdown");
+        } else if(text.equals("/cinema")){
+            text = Cinema.getInfo();
+        } else if(text.contains("/channel")){
+            if(text.split(" ")[1].equals("Admin123")) BotSettings.setChannelId(text.split(" ")[2]);
+            text = "Адрес канала изменен.";
+            sendMessage.setChatId(chatId);
         } else if (text.contains("/test")){
             timer = new Timer();
-            String[] cmd;
+
+            /*String[] cmd;
             cmd = text.split(" ");
             Date date = new Date();
             date.setHours(Integer.parseInt(cmd[1]));
             date.setMinutes(Integer.parseInt(cmd[2]));
             System.out.println(date.toString());
             timer.schedule(new WeatherTT(),date,60000);
-            date.setMinutes(Integer.parseInt(cmd[2])+2);
-            timer.schedule(new NewsTT(),date,60000);
+            timer.schedule(new WeatherTT(),date,60000);*/
+            isStopped = false;
+            while(!isStopped) {
+                sendMessage("/news", (long) 0);
+                Thread.sleep(15000);
+                sendMessage("/weather", (long) 0);
+            }
+
             text = "Тестирование запущено";
             sendMessage.setChatId(chatId);
         } else if (text.equals("/stop")){
             timer.cancel();
+            isStopped = true;
             text = "Тестирование остановлено";
             sendMessage.setChatId(chatId);
         }

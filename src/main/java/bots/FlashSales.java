@@ -22,6 +22,7 @@ public class FlashSales {
     public static void load(){
 
         factory = DocumentBuilderFactory.newInstance();
+        factory.setNamespaceAware(true);
         try {
             builder = factory.newDocumentBuilder();
             document = builder.parse(new File("src/main/resources/FlashSale.xml"));
@@ -35,6 +36,10 @@ public class FlashSales {
 
     }
 
+    public static DocumentBuilder getBuilder(){
+        return builder;
+    }
+
     public static String getFlashSalesText(int d){
         if(d == -1) {
             Calendar calendar = Calendar.getInstance();
@@ -43,7 +48,6 @@ public class FlashSales {
         NodeList nodeList = document.getElementsByTagName("day");
         Element element = (Element) nodeList.item(d-1);
         String result = element.getElementsByTagName("sale").item(0).getTextContent();
-
         return result;
     }
 
