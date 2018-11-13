@@ -6,6 +6,9 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringReader;
@@ -16,6 +19,22 @@ import java.util.Scanner;
 public class AutoNews {
 
     private final static String url = "https://motor.ru/exports/rss";
+
+    private static DocumentBuilderFactory factory;
+    private static DocumentBuilder builder;
+    private static Document document;
+
+    public static void load(){
+
+        factory = DocumentBuilderFactory.newInstance();
+        factory.setNamespaceAware(true);
+        try {
+            builder = factory.newDocumentBuilder();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     public static String getNews() throws IOException, SAXException {
         URL obj = new URL(url);
@@ -46,8 +65,8 @@ public class AutoNews {
         }
 
         String result = "АвтоНовости \uD83D\uDCF0 \n\n";
-        DocumentBuilder builder = FlashSales.getBuilder();
-        Document document = builder.parse(new InputSource(new StringReader(response.toString()+"</channel></rss>")));
+        System.out.println(response.toString()+" </channel> </rss>");
+        document = builder.parse(new InputSource(new StringReader(response.toString()+"</channel></rss>")));
         System.out.println(document.toString());
 
         for(int i=0;i<5;i++){
@@ -56,6 +75,10 @@ public class AutoNews {
         }
 
         return result;
+    }
+
+    public static void main(String[] args) throws IOException, SAXException {
+        System.out.println(getNews());
     }
 
 
