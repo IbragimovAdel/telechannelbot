@@ -93,7 +93,7 @@ public class Bot extends TelegramLongPollingBot {
             String[] cmd;
             cmd = text.split(" ");
             Date date = new Date();
-            date.setHours(Integer.parseInt(cmd[1])-2);
+            date.setHours(Integer.parseInt(cmd[1])-3);
             date.setMinutes(Integer.parseInt(cmd[2]));
             date.setSeconds(0);
             System.out.println(date.toString());
