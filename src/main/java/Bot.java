@@ -90,21 +90,15 @@ public class Bot extends TelegramLongPollingBot {
         } else if (text.contains("/test")){
             timer = new Timer();
 
-            /*String[] cmd;
+            String[] cmd;
             cmd = text.split(" ");
             Date date = new Date();
             date.setHours(Integer.parseInt(cmd[1]));
             date.setMinutes(Integer.parseInt(cmd[2]));
+            date.setSeconds(0);
             System.out.println(date.toString());
             timer.schedule(new WeatherTT(),date,60000);
-            timer.schedule(new WeatherTT(),date,60000);*/
-            isStopped = false;
-            while(!isStopped) {
-                sendMessage("/news", (long) 0);
-                Thread.sleep(15000);
-                sendMessage("/weather", (long) 0);
-            }
-
+            timer.schedule(new NewsTT(),date,60000);
             text = "Тестирование запущено";
             sendMessage.setChatId(chatId);
         } else if (text.equals("/stop")){

@@ -65,7 +65,6 @@ public class AutoNews {
         }
 
         String result = "АвтоНовости \uD83D\uDCF0 \n\n";
-        System.out.println(response.toString()+" </channel> </rss>");
         document = builder.parse(new InputSource(new StringReader(response.toString()+"</channel></rss>")));
         System.out.println(document.toString());
 
@@ -78,6 +77,7 @@ public class AutoNews {
     }
 
     public static void main(String[] args) throws IOException, SAXException {
+        load();
         System.out.println(getNews());
     }
 
