@@ -87,9 +87,10 @@ public class Bot extends TelegramLongPollingBot {
             if(text.split(" ")[1].equals("Admin123")) BotSettings.setChannelId(text.split(" ")[2]);
             text = "Адрес канала изменен.";
             sendMessage.setChatId(chatId);
+        } else if(text.equals("/history")){
+            text = History.getInfo();
         } else if (text.contains("/test")){
             timer = new Timer();
-
             String[] cmd;
             cmd = text.split(" ");
             Date date = new Date();
