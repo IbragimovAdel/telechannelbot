@@ -16,7 +16,7 @@ public class History {
         if(date.getMonth()==2&&date.getDate()==29) return null;
         String month = "";
         String key = "";
-        switch (date.getMonth()){
+        switch (date.getMonth()+1){
             case 1:
                 month = "yanvarya";
                 key = "января";
@@ -67,7 +67,7 @@ public class History {
                 break;
         }
 
-        String result="";
+        String result="\uD83D\uDD25 "+date.getDate()+" "+key+" в истории \uD83D\uDD25\n\n";
 
         String url = generateUrl(Integer.toString(date.getDate()),month);
         Document document = Jsoup.connect(url).get();
@@ -75,9 +75,9 @@ public class History {
         for(int i=0;i<5;i++){
             Element element = block.get(i);
             if(element.children().isEmpty()){
-                result += element.text()+"\n\n";
+                result += element.text()+"\n";
             } else {
-                result += (element.text()+element.getAllElements().get(0).text()+"\n\n");
+                result += (element.text()+element.getAllElements().get(0).text()+"\n");
             }
         }
 
