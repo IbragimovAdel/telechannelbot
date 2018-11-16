@@ -75,9 +75,9 @@ public class History {
         for(int i=0;i<5;i++){
             Element element = block.get(i);
             if(element.children().isEmpty()){
-                result += element.text()+"\n";
+                result += element.text()+"\n\n";
             } else {
-                result += (element.text()+element.getAllElements().get(0).text()+"\n");
+                result += (element.text()+element.getAllElements().get(0).text()+"\n\n");
             }
         }
 
