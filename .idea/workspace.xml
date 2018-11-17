@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3193cae3-0a79-414d-864f-ef093600624d" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bots/Breakfasts.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/breakfasts/food1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/breakfasts/food2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/breakfasts/food3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bots/FlashSales.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bots/FlashSales.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs5.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs6.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs7.jpg" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -22,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Bot.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Bot.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Bot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="62" column="12" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
+            <state relative-caret-position="527">
+              <caret line="67" column="44" selection-start-line="67" selection-start-column="44" selection-end-line="67" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4666#4667#0" expanded="true" />
@@ -36,15 +34,6 @@
                 <element signature="e#4818#4819#0" expanded="true" />
                 <element signature="e#4862#4863#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FlashSales.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/bots/FlashSales.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="23" column="72" selection-start-line="23" selection-start-column="72" selection-end-line="23" selection-end-column="72" />
             </state>
           </provider>
         </entry>
@@ -86,8 +75,9 @@
         <option value="$PROJECT_DIR$/src/main/java/bots/Poetry.java" />
         <option value="$PROJECT_DIR$/src/main/java/bots/History.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot.java" />
         <option value="$PROJECT_DIR$/src/main/java/bots/FlashSales.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bots/Breakfasts.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot.java" />
       </list>
     </option>
   </component>
@@ -142,6 +132,14 @@
               <item name="telechannelbot" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="bots" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="telechannelbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="telechannelbot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -151,6 +149,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="telechannelbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="telechannelbot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+              <item name="breakfasts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="telechannelbot" type="b2602c69:ProjectViewProjectNode" />
@@ -177,6 +184,7 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ibrag\IdeaProjects\telechannelbot\src\main\resources\img\food" />
       <recent name="C:\Users\ibrag\IdeaProjects\telechannelbot\src\main\java" />
       <recent name="C:\Users\ibrag\IdeaProjects\telechannelbot\src\main\resources\img\flashsales" />
     </key>
@@ -327,11 +335,12 @@
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50104165" side_tool="true" weight="0.19746569" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Version Control" order="2" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.49895832" visible="true" weight="0.32946146" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49895832" weight="0.32946146" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="0" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.32946146" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
       <window_info id="UI Designer" order="1" />
@@ -343,7 +352,6 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.32946146" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -602,10 +610,27 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/img/flashsales/fs7.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bots/Breakfasts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bots/FlashSales.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="23" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Bot.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="62" column="12" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
+        <state relative-caret-position="527">
+          <caret line="67" column="44" selection-start-line="67" selection-start-column="44" selection-end-line="67" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4666#4667#0" expanded="true" />
@@ -615,13 +640,6 @@
             <element signature="e#4818#4819#0" expanded="true" />
             <element signature="e#4862#4863#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bots/FlashSales.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="23" column="72" selection-start-line="23" selection-start-column="72" selection-end-line="23" selection-end-column="72" />
         </state>
       </provider>
     </entry>

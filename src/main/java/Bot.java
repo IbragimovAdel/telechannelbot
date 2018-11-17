@@ -56,10 +56,16 @@ public class Bot extends TelegramLongPollingBot {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else if (text.contains("/flashsale")) {
+        } else if (text.equals("/flashsale")) {
             SendPhoto sendPhoto = new SendPhoto();
             sendPhoto.setChatId(BotSettings.CHANNEL_ID);
             sendPhoto.setNewPhoto(FlashSales.getImage());
+            sendPhoto(sendPhoto);
+            send = false;
+        } else if (text.equals("/breakfast")){
+            SendPhoto sendPhoto = new SendPhoto();
+            sendPhoto.setChatId(BotSettings.CHANNEL_ID);
+            sendPhoto.setNewPhoto(Breakfasts.getImage());
             sendPhoto(sendPhoto);
             send = false;
         } else if(text.equals("/autonews")){
