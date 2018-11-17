@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3193cae3-0a79-414d-864f-ef093600624d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bots/FlashSales.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bots/FlashSales.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs7.jpg" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -19,8 +25,8 @@
       <file leaf-file-name="Bot.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Bot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1683">
-              <caret line="99" column="17" selection-start-line="99" selection-start-column="17" selection-end-line="99" selection-end-column="17" />
+            <state relative-caret-position="425">
+              <caret line="62" column="12" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4666#4667#0" expanded="true" />
@@ -37,8 +43,8 @@
       <file leaf-file-name="FlashSales.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/bots/FlashSales.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="29" column="40" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
+            <state relative-caret-position="187">
+              <caret line="23" column="72" selection-start-line="23" selection-start-column="72" selection-end-line="23" selection-end-column="72" />
             </state>
           </provider>
         </entry>
@@ -187,7 +193,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.FlashSales">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="AutoNews" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="bots.AutoNews" />
       <module name="telechannelbot" />
@@ -287,8 +293,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.FlashSales" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.FlashSales" />
         <item itemvalue="Application.History" />
         <item itemvalue="Application.AutoNews" />
         <item itemvalue="Application.Cinema" />
@@ -598,8 +604,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Bot.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
-          <caret line="99" column="17" selection-start-line="99" selection-start-column="17" selection-end-line="99" selection-end-column="17" />
+        <state relative-caret-position="425">
+          <caret line="62" column="12" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4666#4667#0" expanded="true" />
@@ -614,8 +620,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bots/FlashSales.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="29" column="40" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
+        <state relative-caret-position="187">
+          <caret line="23" column="72" selection-start-line="23" selection-start-column="72" selection-end-line="23" selection-end-column="72" />
         </state>
       </provider>
     </entry>
