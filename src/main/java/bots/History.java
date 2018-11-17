@@ -74,11 +74,7 @@ public class History {
         Elements block = document.getElementsByTag("body").get(0).getElementsContainingOwnText(date.getDate()+" "+key+" в Истории").get(0).parent().parent().parent().parent().child(1).child(0).children();
         for(int i=0;i<5;i++){
             Element element = block.get(i);
-            if(element.children().isEmpty()){
-                result += element.text()+"\n\n";
-            } else {
-                result += (element.text()+element.getAllElements().get(0).text()+"\n\n");
-            }
+            result += element.text()+"\n\n";
         }
 
         return result;
@@ -88,10 +84,6 @@ public class History {
 
         return "https://ruspekh.ru/events/item/" + date + "-" + month + "-v-istorii";
 
-    }
-
-    public static void main(String[] args) throws IOException {
-        System.out.println(getInfo());
     }
 
 }
