@@ -12,105 +12,17 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;
+import java.util.Date;
 
 public class FlashSales {
 
-    private static DocumentBuilderFactory factory;
-    private static DocumentBuilder builder;
-    private static Document document;
+    public static File getImage(){
 
-    public static void load(){
+        Date date = new Date();
+        int day = date.getDay()+1;
+        File file = new File("src/main/resources/img/flashsales/fs1"+day+".jpg");
 
-        factory = DocumentBuilderFactory.newInstance();
-        factory.setNamespaceAware(true);
-        try {
-            builder = factory.newDocumentBuilder();
-            document = builder.parse(new File("src/main/resources/FlashSale.xml"));
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    public static DocumentBuilder getBuilder(){
-        return builder;
-    }
-
-    public static String getFlashSalesText(int d){
-        if(d == -1) {
-            Calendar calendar = Calendar.getInstance();
-            d = calendar.get(Calendar.DAY_OF_WEEK);
-        }
-        NodeList nodeList = document.getElementsByTagName("day");
-        Element element = (Element) nodeList.item(d-1);
-        String result = element.getElementsByTagName("sale").item(0).getTextContent();
-        return result;
-    }
-
-    public static void setFlashSalesText(String s) {
-
-        String[] cmd = s.split(" ");
-
-        if(cmd.length == 1) return;
-        else if(cmd.length == 2 && cmd[1].charAt(0)>=49 && cmd[1].charAt(0)<=55) {
-            int d = Integer.parseInt(cmd[1]);
-
-            NodeList nodeList = document.getElementsByTagName("day");
-            Element element = (Element) nodeList.item(d-1);
-            element.getElementsByTagName("sale").item(0).setTextContent("");
-        } else if(cmd.length > 2) {
-            int d = Integer.parseInt(cmd[1]);
-
-            NodeList nodeList = document.getElementsByTagName("day");
-            Element element = (Element) nodeList.item(d-1);
-            String text = "";
-            for(int i=0;i<cmd.length-2;i++){
-                text += (cmd[i+2] + " ");
-            }
-            element.getElementsByTagName("sale").item(0).setTextContent(text);
-        } else return;
-
-    }
-
-    public static void setFlashSalesUrl(String s) {
-
-        String[] cmd = s.split(" ");
-
-        if(cmd.length == 1) return;
-        else if(cmd.length == 2 && cmd[1].charAt(0)>=49 && cmd[1].charAt(0)<=55) {
-            int d = Integer.parseInt(cmd[1]);
-
-            NodeList nodeList = document.getElementsByTagName("day");
-            Element element = (Element) nodeList.item(d-1);
-            element.getElementsByTagName("sale").item(0).setTextContent("");
-        } else if(cmd.length > 2) {
-            int d = Integer.parseInt(cmd[1]);
-
-            NodeList nodeList = document.getElementsByTagName("day");
-            Element element = (Element) nodeList.item(d-1);
-            String text = "";
-            for(int i=0;i<cmd.length-2;i++){
-                text += (cmd[i+2] + " ");
-            }
-            element.getElementsByTagName("url").item(0).setTextContent(text);
-        } else return;
-    }
-
-    public static String getFlashSalesUrl(int d){
-
-        if(d == -1) {
-            Calendar calendar = Calendar.getInstance();
-            d = calendar.get(Calendar.DAY_OF_WEEK);
-        }
-        NodeList nodeList = document.getElementsByTagName("day");
-        Element element = (Element) nodeList.item(d-1);
-        String result = element.getElementsByTagName("url").item(0).getTextContent();
-
-        return result;
+        return file;
     }
 
 }

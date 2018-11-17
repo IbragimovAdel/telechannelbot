@@ -1,5 +1,6 @@
 import bots.*;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
+import org.telegram.telegrambots.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
@@ -35,6 +36,9 @@ public class Bot extends TelegramLongPollingBot {
     }
 
     public void sendMessage(String text, Long chatId) throws TelegramApiException, InterruptedException, IOException, SAXException {
+
+        boolean send = true;
+
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(BotSettings.CHANNEL_ID);
         if (text.equals("/weather")) {
@@ -52,31 +56,11 @@ public class Bot extends TelegramLongPollingBot {
                 e.printStackTrace();
             }
         } else if (text.contains("/flashsale")) {
-            int d = -1;
-            String[] cmd = text.split(" ");
-            if(cmd.length == 2 && cmd[1].charAt(0)>=49 && cmd[1].charAt(0)<=55) d = Integer.parseInt(cmd[1]);
-            String s = FlashSales.getFlashSalesText(d);
-            String url = FlashSales.getFlashSalesUrl(d);
-            sendMessage.setParseMode("HTML");
-            sendMessage.enableWebPagePreview();
-            if (s.equals("") && url.equals("")) text = "На данный момент акций нет \uD83D\uDE22";
-            else if (url.equals("")) text = s;
-            else if (s.equals("")) text = "\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\n<a href=\"" + url+"\">&#8205;</a>";
-            else text = s + "\n\n" + "<a href=\"" + url + "\"></a>";
-        } else if(text.contains("/setfstext")){
-            FlashSales.setFlashSalesText(text);
-            sendMessage.setChatId(chatId);
-            if(text.split(" ").length == 1) text = "Недостаточно аргументов";
-            else {
-                text = "Текст успешно изменен";
-            }
-        } else if(text.contains("/setfsurl")) {
-            FlashSales.setFlashSalesUrl(text);
-            sendMessage.setChatId(chatId);
-            if(text.split(" ").length == 1) text = "Недостаточно аргументов";
-            else {
-                text = "Ссылка успешно изменена";
-            }
+            SendPhoto sendPhoto = new SendPhoto();
+            sendPhoto.setChatId(BotSettings.CHANNEL_ID);
+            sendPhoto.setNewPhoto(FlashSales.getImage());
+            sendPhoto(sendPhoto);
+            send = false;
         } else if(text.equals("/autonews")){
             text = AutoNews.getNews();
             sendMessage.disableWebPagePreview();
@@ -113,7 +97,7 @@ public class Bot extends TelegramLongPollingBot {
             text = "Такой команды не существует";
         }
         sendMessage.setText(text);
-        sendMessage(sendMessage);
+        if(send) sendMessage(sendMessage);
     }
 
     public static Bot getBot(){
