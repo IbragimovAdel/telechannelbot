@@ -1,5 +1,4 @@
 import bots.*;
-import org.telegram.telegrambots.api.methods.send.SendDocument;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.api.objects.Update;
@@ -95,8 +94,8 @@ public class Bot extends TelegramLongPollingBot {
             date.setMinutes(Integer.parseInt(cmd[2]));
             date.setSeconds(0);
             System.out.println(date.toString());
-            timer.schedule(new WeatherTT(),date,60000);
-            timer.schedule(new NewsTT(),date,60000);
+            timer.schedule(new TT("/news"),date,60000);
+            timer.schedule(new TT("/flashsale"),date,60000);
             text = "Тестирование запущено";
             sendMessage.setChatId(chatId);
         } else if (text.equals("/stop")){
