@@ -50,7 +50,7 @@ public class Bot extends TelegramLongPollingBot {
             }
         } else if (text.equals("/news")) {
             try {
-                text = News.getNews();
+                text = LocalNews.getNews();
                 sendMessage.disableWebPagePreview();
                 sendMessage.setParseMode("Markdown");
             } catch (IOException e) {
