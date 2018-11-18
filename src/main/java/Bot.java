@@ -14,22 +14,20 @@ public class Bot extends TelegramLongPollingBot {
 
     Timer timer;
 
-    private boolean isStopped;
-
     public void onUpdateReceived(Update update) {
-        if(update.hasMessage()&&update.getMessage().hasText()){
+        if (update.hasMessage() && update.getMessage().hasText()) {
             try {
-                sendMessage(update.getMessage().getText(),update.getMessage().getChatId());
+                sendMessage(update.getMessage().getText(), update.getMessage().getChatId());
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public static void sendMsg(String text){
+    public static void sendMsg(String text) {
         Bot bot = new Bot();
         try {
-            bot.sendMessage(text,(long) 0);
+            bot.sendMessage(text, (long) 0);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -61,58 +59,94 @@ public class Bot extends TelegramLongPollingBot {
             sendPhoto.setNewPhoto(FlashSales.getImage());
             sendPhoto(sendPhoto);
             send = false;
-        } else if (text.equals("/poetry")){
+        } else if (text.equals("/poetry")) {
             text = Poetry.getInfo();
-        }else if (text.equals("/breakfast")){
+        } else if (text.equals("/breakfast")) {
             SendPhoto sendPhoto = new SendPhoto();
             sendPhoto.setChatId(BotSettings.CHANNEL_ID);
             sendPhoto.setNewPhoto(Breakfasts.getImage());
             sendPhoto(sendPhoto);
             send = false;
-        } else if(text.equals("/autonews")){
+        } else if (text.equals("/autonews")) {
             text = AutoNews.getNews();
             sendMessage.disableWebPagePreview();
             sendMessage.setParseMode("Markdown");
-        } else if(text.equals("/cinema")){
+        } else if (text.equals("/cinema")) {
             text = Cinema.getInfo();
-        } else if(text.equals("/autonews")){
+        } else if (text.equals("/autonews")) {
             text = AutoNews.getNews();
             sendMessage.disableWebPagePreview();
             sendMessage.setParseMode("Markdown");
-        } else if(text.contains("/channel")){
-            if(text.split(" ")[1].equals("Admin123")) BotSettings.setChannelId(text.split(" ")[2]);
+        } else if (text.contains("/channel")) {
+            if (text.split(" ")[1].equals("Admin123")) BotSettings.setChannelId(text.split(" ")[2]);
             text = "Адрес канала изменен.";
             sendMessage.setChatId(chatId);
-        } else if(text.equals("/history")){
+        } else if (text.equals("/history")) {
             text = History.getInfo();
-        } else if (text.contains("/test")){
+        } else if (text.equals("/bot")){
+            text = F1bot.getInfo();
+        } else if (text.contains("/test")) {
             timer = new Timer();
             String[] cmd;
             cmd = text.split(" ");
             Date date = new Date();
-            date.setHours(Integer.parseInt(cmd[1])-3);
+            date.setHours(Integer.parseInt(cmd[1]) - 3);
             date.setMinutes(Integer.parseInt(cmd[2]));
             date.setSeconds(0);
             System.out.println(date.toString());
-            timer.schedule(new TT("/news"),date,60000);
-            timer.schedule(new TT("/flashsale"),date,60000);
+            timer.schedule(new TT("/news"), date, 60000);
+            timer.schedule(new TT("/flashsale"), date, 60000);
             text = "Тестирование запущено";
             sendMessage.setChatId(chatId);
-        } else if (text.equals("/stop")){
+        } else if (text.equals("/stop")) {
             timer.cancel();
-            isStopped = true;
-            text = "Тестирование остановлено";
+            text = "Бот остановлен";
             sendMessage.setChatId(chatId);
-        }
-        else {
+        } else if (text.equals("/start")) {              //START OF THE BOT
+            Date resetDate = new Date();
+            resetDate.setHours(20);
+            resetDate.setMinutes(55);
+            resetDate.setSeconds(0);
+            resetDate.setDate(resetDate.getDate()+1);
+
+            long p = 86400000;
+            Date date = new Date();
+            date.setDate(date.getDate()+1);
+            date.setHours(4);
+            date.setMinutes(0);
+            date.setSeconds(0);
+            System.out.println(date);
+
+            timer.schedule(new TT("/poetry"),date,p);
+            date.setMinutes(30);
+            timer.schedule(new TT("/weather"),date,p);
+            date.setMinutes(31);
+            timer.schedule(new TT("/history"),date,p);
+            date.setMinutes(50);
+            timer.schedule(new TT("/flashsale"),date,p);
+            date.setMinutes(55);
+            timer.schedule(new TT("/bot"),date,p);
+            date.setHours(5);date.setMinutes(0);
+            timer.schedule(new TT("/news"),date,p);
+            date.setMinutes(30);
+            timer.schedule(new TT("/breakfast"),date,p);
+            date.setHours(9);date.setMinutes(0);
+            timer.schedule(new TT("/autonews"),date,p);
+            date.setHours(13);date.setMinutes(0);
+            timer.schedule(new TT("/cinema"),date,p);
+
+            timer.cancel();
+
+            text = "Бот запущен";
+        } else {
             sendMessage.setChatId(chatId);
             text = "Такой команды не существует";
         }
         sendMessage.setText(text);
-        if(send) sendMessage(sendMessage);
+        if (send) sendMessage(sendMessage);
     }
 
-    public static Bot getBot(){
+    public static Bot getBot() {
         return new Bot();
     }
 
