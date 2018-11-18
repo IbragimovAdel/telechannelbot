@@ -16,6 +16,7 @@ public class Poetry {
         Document document = Jsoup.connect(url).get();
         Elements block = document.getElementsByTag("body").get(0).getElementsContainingOwnText("Угадайте автора стихотворения").get(0).parent().parent().parent().child(1).child(0).children();
         String result = "";
+        String author = block.get(0).parent().parent().parent().child(2).getElementsContainingOwnText("Автор:").get(0).child(0).text();
 
         for(int i=0;i<block.size();i++){
             Element element = block.get(i);
@@ -29,11 +30,8 @@ public class Poetry {
             result+="\n\n";
         }
 
+        result+=("Автор: "+author);
         return result;
-    }
-
-    public static void main(String[] args) throws IOException {
-        System.out.println(getInfo());
     }
 
 }
