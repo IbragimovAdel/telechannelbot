@@ -25,10 +25,10 @@ public class Poetry {
             for(int b=0;b<s.length();b++){
                 if(s.charAt(b)=='<'){
                     result+="\n";
-                } else if(s.charAt(b)!='b'&&s.charAt(b)!='r'&&s.charAt(b)!='>') result += s.charAt(b);
+                    b+=4;
+                } else result += s.charAt(b);
             }
             result+="\n\n";
-            result=result.substring(0,result.length()-2);
         }
 
         result+=("Автор: "+author);

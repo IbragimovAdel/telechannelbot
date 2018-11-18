@@ -76,6 +76,10 @@ public class Bot extends TelegramLongPollingBot {
             sendMessage.setParseMode("Markdown");
         } else if(text.equals("/cinema")){
             text = Cinema.getInfo();
+        } else if(text.equals("/autonews")){
+            text = AutoNews.getNews();
+            sendMessage.disableWebPagePreview();
+            sendMessage.setParseMode("Markdown");
         } else if(text.contains("/channel")){
             if(text.split(" ")[1].equals("Admin123")) BotSettings.setChannelId(text.split(" ")[2]);
             text = "Адрес канала изменен.";
