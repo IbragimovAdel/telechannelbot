@@ -117,7 +117,7 @@ public class Bot extends TelegramLongPollingBot {
             timer.schedule(new TT("/poetry"),date,p);
             date.setMinutes(30);
             timer.schedule(new TT("/weather"),date,p);
-            date.setMinutes(31);
+            date.setMinutes(35);
             timer.schedule(new TT("/history"),date,p);
             date.setMinutes(50);
             timer.schedule(new TT("/flashsale"),date,p);
