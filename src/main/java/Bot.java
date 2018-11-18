@@ -104,7 +104,8 @@ public class Bot extends TelegramLongPollingBot {
             sendMessage.setChatId(chatId);
         } else if (text.equals("/start")) {              //START OF THE BOT
 
-            if(timer!=null) timer.cancel();
+            if(timer==null) timer = new Timer();
+            else timer.cancel();
 
             long p = 86400000;
             Date date = new Date();
