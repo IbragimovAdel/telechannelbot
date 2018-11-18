@@ -99,12 +99,12 @@ public class Bot extends TelegramLongPollingBot {
             text = "Тестирование запущено";
             sendMessage.setChatId(chatId);
         } else if (text.equals("/stop")) {
-            timer.cancel();
+            if(timer!=null)timer.cancel();
             text = "Бот остановлен";
             sendMessage.setChatId(chatId);
         } else if (text.equals("/start")) {              //START OF THE BOT
 
-            timer.cancel();
+            if(timer!=null) timer.cancel();
 
             long p = 86400000;
             Date date = new Date();
