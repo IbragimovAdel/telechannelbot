@@ -28,6 +28,7 @@ public class Poetry {
                 } else if(s.charAt(b)!='b'&&s.charAt(b)!='r'&&s.charAt(b)!='>') result += s.charAt(b);
             }
             result+="\n\n";
+            result=result.substring(0,result.length()-2);
         }
 
         result+=("Автор: "+author);
