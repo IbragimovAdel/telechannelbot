@@ -3,6 +3,7 @@ package bots;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
@@ -13,13 +14,26 @@ public class Poetry {
     public static String getInfo() throws IOException {
 
         Document document = Jsoup.connect(url).get();
-        Element block = document.getElementsContainingOwnText("Сегодня в кино").parents().get(0);
-        String result = "Сегодня в кино \uD83D\uDCFD️\n\n";
-        for(int i=1;i<6;i++){
-            result += i+". " + block.children().get(i).getElementsByTag("s").text()+"\n";
+        Elements block = document.getElementsByTag("body").get(0).getElementsContainingOwnText("Угадайте автора стихотворения").get(0).parent().parent().parent().child(1).child(0).children();
+        String result = "";
+
+        for(int i=0;i<block.size();i++){
+            Element element = block.get(i);
+            String s = element.toString();
+            s = s.substring(3,s.length()-4);
+            for(int b=0;b<s.length();b++){
+                if(s.charAt(b)=='<'){
+                    result+="\n";
+                } else if(s.charAt(b)!='b'&&s.charAt(b)!='r'&&s.charAt(b)!='>') result += s.charAt(b);
+            }
+            result+="\n\n";
         }
 
         return result;
+    }
+
+    public static void main(String[] args) throws IOException {
+        System.out.println(getInfo());
     }
 
 }
