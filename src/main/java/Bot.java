@@ -103,12 +103,9 @@ public class Bot extends TelegramLongPollingBot {
             text = "Бот остановлен";
             sendMessage.setChatId(chatId);
         } else if (text.equals("/start")) {              //START OF THE BOT
-            Date resetDate = new Date();
-            resetDate.setHours(20);
-            resetDate.setMinutes(55);
-            resetDate.setSeconds(0);
-            resetDate.setDate(resetDate.getDate()+1);
 
+            timer.cancel();
+            
             long p = 86400000;
             Date date = new Date();
             date.setDate(date.getDate()+1);
@@ -134,8 +131,6 @@ public class Bot extends TelegramLongPollingBot {
             timer.schedule(new TT("/autonews"),date,p);
             date.setHours(13);date.setMinutes(0);
             timer.schedule(new TT("/cinema"),date,p);
-
-            timer.cancel();
 
             text = "Бот запущен";
         } else {
