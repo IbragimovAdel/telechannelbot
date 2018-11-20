@@ -13,6 +13,8 @@ public class Main {
         } catch (TelegramApiRequestException e) {
             e.printStackTrace();
         }
+        Bot.sendMsg("/start");
+        System.out.println("Запуск...");
     }
 
 }
