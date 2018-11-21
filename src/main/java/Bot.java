@@ -25,7 +25,7 @@ public class Bot extends TelegramLongPollingBot {
     }
 
     public static void sendMsg(String text) {
-        Bot bot = new Bot();
+        Bot bot = Main.getBot();
         try {
             bot.sendMessage(text, (long) 0);
         } catch (Exception e) {
@@ -137,6 +137,7 @@ public class Bot extends TelegramLongPollingBot {
             text = "Бот запущен";
             System.out.println("Бот запущен!");
             sendMessage.setChatId(chatId);
+            if(chatId==0) send = false;
         } else {
             sendMessage.setChatId(chatId);
             text = "Такой команды не существует";
