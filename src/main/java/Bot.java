@@ -14,6 +14,10 @@ public class Bot extends TelegramLongPollingBot {
 
     Timer timer;
 
+    public Bot(){
+        
+    }
+
     public void onUpdateReceived(Update update) {
         if (update.hasMessage() && update.getMessage().hasText()) {
             try {

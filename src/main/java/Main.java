@@ -12,7 +12,7 @@ public class Main {
     static Bot bot;
 
     public static void main(String[] args) throws InterruptedException, SAXException, TelegramApiException, IOException {
-        bot = Bot.getBot();
+        bot = new Bot();
         ApiContextInitializer.init();
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
         try {
