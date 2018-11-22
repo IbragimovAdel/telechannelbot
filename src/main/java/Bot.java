@@ -150,6 +150,8 @@ public class Bot extends TelegramLongPollingBot {
             if(currentDate.before(date)) timer.scheduleAtFixedRate(new TT("/autonews",this),date,p);
             date.setHours(13);date.setMinutes(0);
             if(currentDate.before(date)) timer.scheduleAtFixedRate(new TT("/cinema",this),date,p);
+            date.setDate(date.getDate()+1);date.setHours(1);date.setMinutes(0);date.setSeconds(0);
+            timer.scheduleAtFixedRate(new TT("/start",this),date,p);
 
             text = "Бот запущен";
             sendMessage.setChatId(chatId);
