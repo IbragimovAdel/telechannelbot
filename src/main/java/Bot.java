@@ -1,9 +1,12 @@
 import bots.*;
+import org.telegram.telegrambots.ApiContextInitializer;
+import org.telegram.telegrambots.TelegramBotsApi;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
+import org.telegram.telegrambots.exceptions.TelegramApiRequestException;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
@@ -14,8 +17,10 @@ public class Bot extends TelegramLongPollingBot {
 
     Timer timer;
 
-    public Bot(){
-        
+    public Bot() throws TelegramApiRequestException {
+        ApiContextInitializer.init();
+        TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
+        telegramBotsApi.registerBot(this);
     }
 
     public void onUpdateReceived(Update update) {
@@ -28,10 +33,9 @@ public class Bot extends TelegramLongPollingBot {
         }
     }
 
-    public static void sendMsg(String text) {
-        Bot bot = Main.getBot();
+    public void sendMsg(String text) {
         try {
-            bot.sendMessage(text, (long) 0);
+            sendMessage(text, (long) 0);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -150,8 +154,8 @@ public class Bot extends TelegramLongPollingBot {
         if (send) sendMessage(sendMessage);
     }
 
-    public static Bot getBot() {
-        return new Bot();
+    public Bot getBot(){
+        return this;
     }
 
     public String getBotUsername() {

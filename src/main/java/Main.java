@@ -9,23 +9,10 @@ import java.io.IOException;
 
 public class Main {
 
-    static Bot bot;
-
     public static void main(String[] args) throws InterruptedException, SAXException, TelegramApiException, IOException {
-        bot = new Bot();
-        ApiContextInitializer.init();
-        TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
-        try {
-            telegramBotsApi.registerBot(bot);
-        } catch (TelegramApiRequestException e) {
-            e.printStackTrace();
-        }
+        Bot bot = new Bot();
         System.out.println("Запуск...");
         bot.sendMessage("/start", (long) 0);
-    }
-
-    public static Bot getBot(){
-        return bot;
     }
 
 }
