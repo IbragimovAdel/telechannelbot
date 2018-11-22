@@ -12,15 +12,24 @@ import org.xml.sax.SAXException;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Timer;
+import java.util.TimerTask;
 
 public class Bot extends TelegramLongPollingBot {
 
     Timer timer;
 
-    public Bot() throws TelegramApiRequestException {
-        ApiContextInitializer.init();
-        TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
-        telegramBotsApi.registerBot(this);
+    public Bot() {
+        try {
+            sendMessage("/start",(long) 0);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        }
     }
 
     public void onUpdateReceived(Update update) {
@@ -98,12 +107,13 @@ public class Bot extends TelegramLongPollingBot {
             String[] cmd;
             cmd = text.split(" ");
             Date date = new Date();
-            date.setHours(Integer.parseInt(cmd[1]) - 3);
+            Date currentDate = new Date();
+            date.setHours(Integer.parseInt(cmd[1]));
             date.setMinutes(Integer.parseInt(cmd[2]));
             date.setSeconds(0);
             System.out.println(date.toString());
-            timer.schedule(new TT("/news"), date, 60000);
-            timer.schedule(new TT("/flashsale"), date, 60000);
+            if(currentDate.before(date)) timer.scheduleAtFixedRate(new TT("/news",this), date, 60000);
+            if(currentDate.before(date)) timer.scheduleAtFixedRate(new TT("/flashsale",this), date, 60000);
             text = "Тестирование запущено";
             sendMessage.setChatId(chatId);
         } else if (text.equals("/stop")) {
@@ -116,30 +126,30 @@ public class Bot extends TelegramLongPollingBot {
             else timer.cancel();
 
             long p = 86400000;
+            Date currentDate = new Date();
             Date date = new Date();
-            date.setDate(date.getDate()+1);
-            date.setHours(4);
             date.setMinutes(0);
             date.setSeconds(0);
             System.out.println(date);
 
-            timer.schedule(new TT("/poetry"),date,p);
+            date.setHours(4);
+            if(currentDate.before(date)) timer.scheduleAtFixedRate(new TT("/poetry",this),date,p);
             date.setMinutes(30);
-            timer.schedule(new TT("/weather"),date,p);
+            if(currentDate.before(date)) timer.scheduleAtFixedRate(new TT("/weather",this),date,p);
             date.setMinutes(35);
-            timer.schedule(new TT("/history"),date,p);
+            if(currentDate.before(date)) timer.scheduleAtFixedRate(new TT("/history",this),date,p);
             date.setMinutes(50);
-            timer.schedule(new TT("/flashsale"),date,p);
+            if(currentDate.before(date)) timer.scheduleAtFixedRate(new TT("/flashsale",this),date,p);
             date.setMinutes(55);
-            timer.schedule(new TT("/bot"),date,p);
+            if(currentDate.before(date)) timer.scheduleAtFixedRate(new TT("/bot",this),date,p);
             date.setHours(5);date.setMinutes(0);
-            timer.schedule(new TT("/news"),date,p);
+            if(currentDate.before(date)) timer.scheduleAtFixedRate(new TT("/news",this),date,p);
             date.setMinutes(30);
-            timer.schedule(new TT("/breakfast"),date,p);
+            if(currentDate.before(date)) timer.scheduleAtFixedRate(new TT("/breakfast",this),date,p);
             date.setHours(9);date.setMinutes(0);
-            timer.schedule(new TT("/autonews"),date,p);
+            if(currentDate.before(date)) timer.scheduleAtFixedRate(new TT("/autonews",this),date,p);
             date.setHours(13);date.setMinutes(0);
-            timer.schedule(new TT("/cinema"),date,p);
+            if(currentDate.before(date)) timer.scheduleAtFixedRate(new TT("/cinema",this),date,p);
 
             text = "Бот запущен";
             sendMessage.setChatId(chatId);
@@ -162,5 +172,32 @@ public class Bot extends TelegramLongPollingBot {
 
     public String getBotToken() {
         return BotSettings.BOT_TOKEN;
+    }
+
+    public class TT extends TimerTask {
+
+        String cmd;
+        Bot bot;
+
+        public TT(String cmd,Bot bot){
+
+            this.cmd = cmd;
+            this.bot = bot;
+
+        }
+
+        public void run() {
+            try {
+                bot.sendMessage(cmd, (long) 0);
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (SAXException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
