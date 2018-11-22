@@ -117,13 +117,12 @@ public class Bot extends TelegramLongPollingBot {
 
             long p = 86400000;
             Date date = new Date();
-
+            date.setDate(date.getDate()+1);
             date.setHours(4);
             date.setMinutes(0);
             date.setSeconds(0);
             System.out.println(date);
 
-            date.setHours(4);
             timer.schedule(new TT("/poetry"),date,p);
             date.setMinutes(30);
             timer.schedule(new TT("/weather"),date,p);
@@ -143,7 +142,6 @@ public class Bot extends TelegramLongPollingBot {
             timer.schedule(new TT("/cinema"),date,p);
 
             text = "Бот запущен";
-            System.out.println("Бот запущен!");
             sendMessage.setChatId(chatId);
             if(chatId==0) send = false;
         } else {
