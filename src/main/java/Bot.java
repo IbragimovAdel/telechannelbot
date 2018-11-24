@@ -132,25 +132,25 @@ public class Bot extends TelegramLongPollingBot {
             System.out.println(date);
 
             date.setHours(4);
-            if(currentDate.before(date)) timer.scheduleAtFixedRate(new TT("/poetry",this),date,p);
+            if(currentDate.before(date)) timer.schedule(new TT("/poetry",this),date);
             date.setMinutes(30);
-            if(currentDate.before(date)) timer.scheduleAtFixedRate(new TT("/weather",this),date,p);
+            if(currentDate.before(date)) timer.schedule(new TT("/weather",this),date);
             date.setMinutes(35);
-            if(currentDate.before(date)) timer.scheduleAtFixedRate(new TT("/history",this),date,p);
+            if(currentDate.before(date)) timer.schedule(new TT("/history",this),date);
             date.setMinutes(50);
-            if(currentDate.before(date)) timer.scheduleAtFixedRate(new TT("/flashsale",this),date,p);
+            if(currentDate.before(date)) timer.schedule(new TT("/flashsale",this),date);
             date.setMinutes(55);
-            if(currentDate.before(date)) timer.scheduleAtFixedRate(new TT("/bot",this),date,p);
+            if(currentDate.before(date)) timer.schedule(new TT("/bot",this),date);
             date.setHours(5);date.setMinutes(0);
-            if(currentDate.before(date)) timer.scheduleAtFixedRate(new TT("/news",this),date,p);
+            if(currentDate.before(date)) timer.schedule(new TT("/news",this),date);
             date.setMinutes(30);
-            if(currentDate.before(date)) timer.scheduleAtFixedRate(new TT("/breakfast",this),date,p);
+            if(currentDate.before(date)) timer.schedule(new TT("/breakfast",this),date);
             date.setHours(9);date.setMinutes(0);
-            if(currentDate.before(date)) timer.scheduleAtFixedRate(new TT("/autonews",this),date,p);
+            if(currentDate.before(date)) timer.schedule(new TT("/autonews",this),date);
             date.setHours(13);date.setMinutes(0);
-            if(currentDate.before(date)) timer.scheduleAtFixedRate(new TT("/cinema",this),date,p);
+            if(currentDate.before(date)) timer.schedule(new TT("/cinema",this),date);
             date.setDate(date.getDate()+1);date.setHours(1);date.setMinutes(0);date.setSeconds(0);
-            timer.scheduleAtFixedRate(new TT("/start",this),date,p);
+            timer.schedule(new TT("/start",this),date);
 
             text = "Бот запущен";
             sendMessage.setChatId(chatId);
