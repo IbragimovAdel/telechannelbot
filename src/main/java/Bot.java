@@ -34,6 +34,8 @@ public class Bot extends TelegramLongPollingBot {
 
     public void onUpdateReceived(Update update) {
         if (update.hasMessage() && update.getMessage().hasText()) {
+            int userID = update.getMessage().getFrom().getId();
+            if(userID!=259993783) return;
             try {
                 sendMessage(update.getMessage().getText(), update.getMessage().getChatId());
             } catch (Exception e) {
