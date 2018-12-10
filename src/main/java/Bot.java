@@ -61,6 +61,7 @@ public class Bot extends TelegramLongPollingBot {
         if (text.equals("/weather")) {
             try {
                 text = Weather.getWeather();
+                sendMessage.disableNotification();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -69,6 +70,7 @@ public class Bot extends TelegramLongPollingBot {
                 text = LocalNews.getNews();
                 sendMessage.disableWebPagePreview();
                 sendMessage.setParseMode("Markdown");
+                sendMessage.disableNotification();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -80,10 +82,12 @@ public class Bot extends TelegramLongPollingBot {
             send = false;
         } else if (text.equals("/poetry")) {
             text = Poetry.getInfo();
+            sendMessage.disableNotification();
         } else if (text.equals("/breakfast")) {
             SendPhoto sendPhoto = new SendPhoto();
             sendPhoto.setChatId(BotSettings.CHANNEL_ID);
             sendPhoto.setNewPhoto(Breakfasts.getImage());
+            sendPhoto.disableNotification();
             sendPhoto(sendPhoto);
             send = false;
         } else if (text.equals("/autonews")) {
@@ -92,6 +96,7 @@ public class Bot extends TelegramLongPollingBot {
             sendMessage.setParseMode("Markdown");
         } else if (text.equals("/cinema")) {
             text = Cinema.getInfo();
+            sendMessage.disableNotification();
         } else if (text.equals("/autonews")) {
             text = AutoNews.getNews();
             sendMessage.disableWebPagePreview();
@@ -101,6 +106,7 @@ public class Bot extends TelegramLongPollingBot {
             text = "Адрес канала изменен.";
             sendMessage.setChatId(chatId);
         } else if (text.equals("/history")) {
+            sendMessage.disableNotification();
             text = History.getInfo();
         } else if (text.equals("/bot")){
             text = F1bot.getInfo();
@@ -126,7 +132,6 @@ public class Bot extends TelegramLongPollingBot {
 
             timer = new Timer();
 
-            long p = 86400000;
             Date currentDate = new Date();
             Date date = new Date();
             date.setMinutes(0);
