@@ -110,6 +110,7 @@ public class Bot extends TelegramLongPollingBot {
             text = History.getInfo();
         } else if (text.equals("/bot")){
             text = F1bot.getInfo();
+            sendMessage.disableNotification();
         } else if (text.contains("/test")) {
             timer = new Timer();
             String[] cmd;
