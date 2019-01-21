@@ -18,13 +18,12 @@ public class Cinema {
     public static String getInfo() throws IOException {
 
         Document document = Jsoup.connect(url).get();
-        Element block = document.getElementsContainingOwnText("Сегодня в кино").parents().get(0);
+        Elements block = document.getElementsContainingOwnText("Сегодня в кино").parents().get(0).getElementsByTag("dd");
         String result = "Сегодня в кино \uD83D\uDCFD️\n\n";
-        for(int i=1;i<6;i++){
-            result += i+". " + block.children().get(i).getElementsByTag("s").text()+"\n";
+        for(int i=0;i<5;i++){
+            result += (i+1)+". " + block.get(i).getElementsByClass("title").text()+"\n";
         }
 
         return result;
     }
-
 }
