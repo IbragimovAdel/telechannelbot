@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3193cae3-0a79-414d-864f-ef093600624d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bots/FlashSales.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bots/FlashSales.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs5.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs6.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs7.jpg" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,7 +21,7 @@
       <file leaf-file-name="Bot.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Bot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
+            <state relative-caret-position="250">
               <caret line="147" column="47" selection-start-line="147" selection-start-column="47" selection-end-line="147" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -615,7 +606,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Bot.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
+        <state relative-caret-position="250">
           <caret line="147" column="47" selection-start-line="147" selection-start-column="47" selection-end-line="147" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
