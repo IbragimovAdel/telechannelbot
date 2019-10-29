@@ -165,7 +165,7 @@ public class Bot extends TelegramLongPollingBot {
             if(chatId==0) send = false;
         } else {
             sendMessage.setChatId(chatId);
-            text = "Такой команды не существует git";
+            text = "Такой команды не существует ";
         }
         sendMessage.setText(text);
         if (send) sendMessage(sendMessage);
