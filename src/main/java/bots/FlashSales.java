@@ -21,6 +21,7 @@ public class FlashSales {
         Date date = new Date();
         int day = date.getDay()+1;
         File file = new File("src/main/resources/img/flashsales/fs"+day+".png");
+        System.out.println("Файл отправлен");
         return file;
     }
 

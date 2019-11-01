@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3193cae3-0a79-414d-864f-ef093600624d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bots/FlashSales.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bots/FlashSales.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +40,7 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/img/flashsales" />
       <recent name="C:\Users\ibrag\IdeaProjects\telechannelbot\src\main\resources\img\food" />
       <recent name="C:\Users\ibrag\IdeaProjects\telechannelbot\src\main\java" />
       <recent name="C:\Users\ibrag\IdeaProjects\telechannelbot\src\main\resources\img\flashsales" />
@@ -161,7 +160,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1541411394371</updated>
-      <workItem from="1572361870875" duration="1487000" />
+      <workItem from="1572361870875" duration="1727000" />
     </task>
     <servers />
   </component>
