@@ -3,6 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="3193cae3-0a79-414d-864f-ef093600624d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs5.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs6.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs7.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/flashsales/fs7.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -161,6 +168,7 @@
       <option name="presentableId" value="Default" />
       <updated>1541411394371</updated>
       <workItem from="1572361870875" duration="1727000" />
+      <workItem from="1572618460980" duration="409000" />
     </task>
     <servers />
   </component>
@@ -172,7 +180,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
