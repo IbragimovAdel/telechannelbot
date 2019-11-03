@@ -108,6 +108,7 @@ public class Bot extends TelegramLongPollingBot {
         } else if (text.equals("/history")) {
             sendMessage.disableNotification();
             text = History.getInfo();
+            if(text.equals("-1")) send = false;
         } else if (text.equals("/bot")){
             text = F1bot.getInfo();
             sendMessage.disableNotification();

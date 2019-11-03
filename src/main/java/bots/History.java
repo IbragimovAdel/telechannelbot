@@ -72,10 +72,12 @@ public class History {
         String url = generateUrl(Integer.toString(date.getDate()),month);
         Document document = Jsoup.connect(url).get();
         Elements block = document.getElementsByTag("body").get(0).getElementsContainingOwnText(date.getDate()+" "+key+" в Истории").get(0).parent().parent().parent().parent().child(1).child(0).children();
-        for(int i=0;i<5;i++){
-            Element element = block.get(i);
-            result += element.text()+"\n\n";
-        }
+        if(block.size() >= 5) {
+            for (int i = 0; i < 5; i++) {
+                Element element = block.get(i);
+                result += element.text() + "\n\n";
+            }
+        } else result = "-1";
 
         return result;
     }
